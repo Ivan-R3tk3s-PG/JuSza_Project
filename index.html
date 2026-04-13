@@ -1,12 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-    <title>Kvíz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Általános Tudásteszt</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 </head>
 <body>
-    
+<div class="container">
+
+  <header class="header">
+    <div class="header-label">Általános Tudásteszt</div>
+    <h1>Mennyit tudsz <em>valójában?</em></h1>
+    <p>10 kérdés &nbsp;&middot;&nbsp; Különféle feladattípusok &nbsp;&middot;&nbsp; Részletes kiértékelés</p>
+  </header>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 10</div>
+  </div>
+
+  <div id="quiz-form">
+
+    <!-- Q1: Radio -->
+    <div class="question-card" data-q="1" data-type="radio" data-correct="a">
+      <div class="q-meta"><span class="q-number">1. Kérdés</span><span class="q-type-badge">Egyszeres választás</span></div>
+      <p class="q-text">Melyik nyelvet fejlesztette a Google 2009–2012 körül rendszerprogramozásra?</p>
+      <div class="options-list">
+        <label class="option-label" data-val="a"><input type="radio" name="q1" value="a"><span class="custom-dot"></span><span class="option-text">Go</span></label>
+        <label class="option-label" data-val="b"><input type="radio" name="q1" value="b"><span class="custom-dot"></span><span class="option-text">Rust</span></label>
+        <label class="option-label" data-val="c"><input type="radio" name="q1" value="c"><span class="custom-dot"></span><span class="option-text">Java</span></label>
+        <label class="option-label" data-val="d"><input type="radio" name="q1" value="d"><span class="custom-dot"></span><span class="option-text">Python</span></label>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q2: Radio -->
+    <div class="question-card" data-q="2" data-type="radio" data-correct="a">
+      <div class="q-meta"><span class="q-number">2. Kérdés</span><span class="q-type-badge">Egyszeres választás</span></div>
+      <p class="q-text">Mi a HTML rövidítése?</p>
+      <div class="options-list">
+        <label class="option-label" data-val="a"><input type="radio" name="q2" value="a"><span class="custom-dot"></span><span class="option-text">HyperText Markup Language</span></label>
+        <label class="option-label" data-val="b"><input type="radio" name="q2" value="b"><span class="custom-dot"></span><span class="option-text">HighText Machine Language</span></label>
+        <label class="option-label" data-val="c"><input type="radio" name="q2" value="c"><span class="custom-dot"></span><span class="option-text">Hyperlinking and Text Markup</span></label>
+        <label class="option-label" data-val="d"><input type="radio" name="q2" value="d"><span class="custom-dot"></span><span class="option-text">Home Tool Markup Language</span></label>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q3: Checkbox -->
+    <div class="question-card" data-q="3" data-type="checkbox" data-correct="a,b,d">
+      <div class="q-meta"><span class="q-number">3. Kérdés</span><span class="q-type-badge">Többszörös választás</span></div>
+      <p class="q-text">Melyek kapcsolhatók a funkcionális programozási paradigmához?</p>
+      <div class="options-list">
+        <label class="option-label" data-val="a"><input type="checkbox" name="q3" value="a"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Haskell</span></label>
+        <label class="option-label" data-val="b"><input type="checkbox" name="q3" value="b"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Erlang</span></label>
+        <label class="option-label" data-val="c"><input type="checkbox" name="q3" value="c"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">C#</span></label>
+        <label class="option-label" data-val="d"><input type="checkbox" name="q3" value="d"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Lisp</span></label>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q4: Text -->
+    <div class="question-card" data-q="4" data-type="text" data-correct="agra">
+      <div class="q-meta"><span class="q-number">4. Kérdés</span><span class="q-type-badge">Szöveges válasz</span></div>
+      <p class="q-text">Melyik város híres a Taj Mahal-ról? (Írj magyarul, kis- vagy nagybetűvel!)</p>
+      <div class="text-input-wrap">
+        <input type="text" id="q4-input" placeholder="Ide írj...">
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q5: Select -->
+    <div class="question-card" data-q="5" data-type="select" data-correct="git">
+      <div class="q-meta"><span class="q-number">5. Kérdés</span><span class="q-type-badge">Legördülő lista</span></div>
+      <p class="q-text">Melyik verziókezelő rendszer használja a 'commit' és 'push' parancsokat?</p>
+      <select class="styled-select" id="q5-select">
+        <option value="">Válassz</option>
+        <option value="git">Git</option>
+        <option value="svn">SVN</option>
+        <option value="hg">Mercurial</option>
+        <option value="cvs">CVS</option>
+      </select>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q6: Radio -->
+    <div class="question-card" data-q="6" data-type="radio" data-correct="a">
+      <div class="q-meta"><span class="q-number">6. Kérdés</span><span class="q-type-badge">Egyszeres választás</span></div>
+      <p class="q-text">Melyik nyelvet futtatja natívan a Java Virtual Machine (JVM)?</p>
+      <div class="options-list">
+        <label class="option-label" data-val="a"><input type="radio" name="q6" value="a"><span class="custom-dot"></span><span class="option-text">Java</span></label>
+        <label class="option-label" data-val="b"><input type="radio" name="q6" value="b"><span class="custom-dot"></span><span class="option-text">C++</span></label>
+        <label class="option-label" data-val="c"><input type="radio" name="q6" value="c"><span class="custom-dot"></span><span class="option-text">Python</span></label>
+        <label class="option-label" data-val="d"><input type="radio" name="q6" value="d"><span class="custom-dot"></span><span class="option-text">JavaScript</span></label>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q7: Range -->
+    <div class="question-card" data-q="7" data-type="range" data-correct="7">
+      <div class="q-meta"><span class="q-number">7. Kérdés</span><span class="q-type-badge">Csúszka</span></div>
+      <p class="q-text">Hány kontinens van a Földön? (Húzd a csúszkát a helyes értékre!)</p>
+      <div class="range-wrap">
+        <div class="range-value" id="q7-val">0</div>
+        <input type="range" id="q7-range" min="0" max="12" value="0">
+        <div class="range-display"><span>0</span><span>12</span></div>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q8: Checkbox -->
+    <div class="question-card" data-q="8" data-type="checkbox" data-correct="a,b,d">
+      <div class="q-meta"><span class="q-number">8. Kérdés</span><span class="q-type-badge">Többszörös választás</span></div>
+      <p class="q-text">Mely országok Dél‑Amerikában találhatók?</p>
+      <div class="options-list">
+        <label class="option-label" data-val="a"><input type="checkbox" name="q8" value="a"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Brazília</span></label>
+        <label class="option-label" data-val="b"><input type="checkbox" name="q8" value="b"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Argentína</span></label>
+        <label class="option-label" data-val="c"><input type="checkbox" name="q8" value="c"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Mexikó</span></label>
+        <label class="option-label" data-val="d"><input type="checkbox" name="q8" value="d"><span class="custom-check"><svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l3 3 5-6"/></svg></span><span class="option-text">Chile</span></label>
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q9: Select -->
+    <div class="question-card" data-q="9" data-type="select" data-correct="clone">
+      <div class="q-meta"><span class="q-number">9. Kérdés</span><span class="q-type-badge">Legördülő lista</span></div>
+      <p class="q-text">Melyik parancs klónoz egy Git repository-t?</p>
+      <select class="styled-select" id="q9-select">
+        <option value="">Válassz</option>
+        <option value="clone">git clone</option>
+        <option value="commit">git commit</option>
+        <option value="push">git push</option>
+        <option value="init">git init</option>
+      </select>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <!-- Q10: Text -->
+    <div class="question-card" data-q="10" data-type="text" data-correct="120">
+      <div class="q-meta"><span class="q-number">10. Kérdés</span><span class="q-type-badge">Szöveges válasz</span></div>
+      <p class="q-text">Mennyi 5! (5 faktoriális)? Írd be számként.</p>
+      <div class="text-input-wrap">
+        <input type="text" id="q10-input" placeholder="Ide írd a számot...">
+      </div>
+      <div class="q-feedback"><span class="q-feedback-icon"></span><span class="q-feedback-text"></span></div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn">Kvíz kiértékelése</button>
+  </div>
+
+  <div id="results">
+    <div class="results-card">
+      <div class="score-ring">
+        <svg width="140" height="140" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle class="score-ring-track" cx="60" cy="60" r="54"/>
+          <circle class="score-ring-fill" id="ringFill" cx="60" cy="60" r="54"/>
+        </svg>
+        <div class="score-ring-text">
+          <span class="score-num" id="scoreNum">0</span>
+          <span class="score-denom">/ 10 pont</span>
+        </div>
+      </div>
+      <h2 class="result-title" id="resultTitle">Eredmény</h2>
+      <p class="result-subtitle" id="resultSubtitle"></p>
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-num c-green" id="statCorrect">0</span><span class="stat-label">Helyes</span></div>
+        <div class="stat-item"><span class="stat-num c-red"   id="statWrong">0</span><span class="stat-label">Helytelen</span></div>
+        <div class="stat-item"><span class="stat-num c-gold"  id="statPct">0%</span><span class="stat-label">Pontosság</span></div>
+      </div>
+      <button class="retry-btn" id="retryBtn">Újra próbálom</button>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
